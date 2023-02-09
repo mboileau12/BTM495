@@ -1,28 +1,28 @@
 class PaymentInformation:
-    def __init__(self, payment_info_id, amount, payment_type, paymentCard_no, expiration_date, security_code,
+    def __init__(self, payment_id, payment_amount, payment_type, card_number, expiration_date, security_code,
                  billing_address):
-        self.payment_info_id = payment_info_id
-        self.amount = amount
+        self.payment_id = payment_id
+        self.payment_amount = payment_amount
         self.payment_type = payment_type
-        self. paymentCard_no = paymentCard_no
+        self.card_number = card_number
         self. expiration_date = expiration_date
         self.security_code = security_code
         self.billing_address = billing_address
 
 
     #getter and setter for payment info id
-    def _set_payment_info_id(self, id):
-        self.payment_info_id = id
+    def _set_payment_id(self, id):
+        self.payment_id = id
 
-    def _get_payment_info_id(self):
-        return self.payment_info_id
+    def _get_payment_id(self):
+        return self.payment_id
 
     # getters and setters for payment amount
-    def _set_amount(self, amount):
-        self.amount = amount
+    def _set_payment_amount(self, amount):
+        self.payment_amount = amount
 
-    def _get_amount(self):
-        return self.amount
+    def _get_payment_amount(self):
+        return self.payment_amount
 
     # getters and setters for payment type
     def set_payment_type(self, type):
@@ -32,11 +32,11 @@ class PaymentInformation:
         return self.payment_type
 
     # getters and setters for payment card number
-    def _set_paymentCard_no(self, cardNumber):
-        self.paymentCard_no = cardNumber
+    def _set_card_number(self, cardNumber):
+        self.card_number = cardNumber
 
-    def _get_paymentCard_no(self):
-        return self.paymentCard_no
+    def _get_card_number(self):
+        return self.card_number
 
     #getter and setter for expiration date
     def _set_exipiration_date(self, date):
