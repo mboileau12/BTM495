@@ -1,6 +1,6 @@
 class Room:
 
-    def _init_(self, room_id, room_number, room_type, room_description, room_rates, room_status):
+    def _init_(self, room_id, room_number, room_type, room_description, room_rates = 0, room_status):
         self.room_id = room_id
         self.room_number = room_number
         self.room_type = room_type
@@ -52,4 +52,4 @@ class Room:
     
     def _get_room_status(self)
         return self.room_status
-        
+

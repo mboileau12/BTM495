@@ -1,6 +1,6 @@
 class Invoice:
 
-   def _init_(self, invoice_id, invoice_description, payment_date, balance):
+   def _init_(self, invoice_id, invoice_description, payment_date, balance = 0):
        
        self.invoice_id = invoice_id
        self.invoice_description = invoice_description
