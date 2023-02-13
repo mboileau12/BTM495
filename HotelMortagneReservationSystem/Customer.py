@@ -8,13 +8,6 @@ class Customer:
         self.phone_number = phone_number
         self.email_address = email_address
 
-        # QUESTION: DO YOU INITIALIZE THESE VARIABLES OR NO CAUSE THEY'RE FROM ANOTHER CLASS?
-        # self.payment_information = payment_information
-        # self.booked_reservations = booked_reservations
-        # self.booked_rooms = booked_rooms
-
-        # Question: Variables might need to be like customerId and not customer_id
-
     #get and set methods for customer_id
     def get_customer_id(self):
         return self.customer_id

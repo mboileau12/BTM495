@@ -21,7 +21,6 @@ class Amenity:
     def _get_amenity_type(self)
         return self.amenity_type
 
-    
     #getter and setter for amenity description
     def _set_amenity_description(self, input)
         self.amenity_description = input
