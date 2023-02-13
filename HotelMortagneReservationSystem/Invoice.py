@@ -9,32 +9,32 @@ class Invoice:
 
     
     #getter and setter for invoice id
-    def _set_invoice_id(self, id)
+    def _set_invoice_id(self, id):
         self.invoice_id = id
     
-    def _get_invoice_id(self)
+    def _get_invoice_id(self):
         return self.invoice_id
 
     #getter and setter for invoice description
-    def _set_invoice_description(self, input)
+    def _set_invoice_description(self, input):
         self.invoice_description = input
     
-    def _get_invoice_description(self)
+    def _get_invoice_description(self):
         return self.invoice_description
 
     #getter and setter for invoice description
-    def _set_payment_date(self, date)
+    def _set_payment_date(self, date):
         self.payment_date = date
     
-    def _get_payment_date(self)
+    def _get_payment_date(self):
         self.payment_date
     
 
     #getter and setter for balance
-    def _set_balance(self, amount)
+    def _set_balance(self, amount):
         self.balance = amount
     
-    def _get_balance(self)
+    def _get_balance(self):
         return self.balance
 
         

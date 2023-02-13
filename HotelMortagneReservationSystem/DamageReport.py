@@ -7,32 +7,32 @@ class DamageReport:
         self.damage_balance = damage_balance
 
     #getter and setter for damage id
-    def _set_damage_id(self, id)
+    def _set_damage_id(self, id):
         self.damage_id = id
     
-    def _get_damage_id(self)
+    def _get_damage_id(self):
         return self.damage_id
     
     #getter and setter for damage description
-    def _set_damage_description(self, desc)
+    def _set_damage_description(self, desc):
         self.damage_description = desc
     
-    def _get_damage_description(self)
+    def _get_damage_description(self):
         return self.damage_description
     
     #getter and setter for damage date
-    def _set_damage_date(self, date)
+    def _set_damage_date(self, date):
         self.damage_date = date
     
-    def _get_damage_date(self)
+    def _get_damage_date(self):
         return self.damage_date
     
 
     #getter and setter for damage balance
-    def _set_damage_balance(self, bal)
+    def _set_damage_balance(self, bal):
         self.damage_balance = bal
 
-    def _get_damage_balance(self)
+    def _get_damage_balance(self):
         return self.damage_balance
         
 

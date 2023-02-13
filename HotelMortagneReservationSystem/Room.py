@@ -10,46 +10,46 @@ class Room:
 
     #getter and setter for room id
     
-    def _set_room_id(self, id)
+    def _set_room_id(self, id):
         self.room_id = id
     
-    def _get_room_id(self)
+    def _get_room_id(self):
         return room_id
 
     #getter and setter for room number
     #input is considered a string because we're assuming there could be rooms named "Room 10 A" AKA 
     #what is displayed on the website or in company's database
-    def _set_room_number(self, input)
+    def _set_room_number(self, input):
         self.room_number = input
         
-    def _get_room_number(self)
-        return room_number
+    def _get_room_number(self):
+        return self.room_number
 
     #getter and setter for room type
-    def _set_room_type(self, input)
+    def _set_room_type(self, input):
         self.room_type = input
     
-    def _get_room_type(self)
+    def _get_room_type(self):
         return self.room_type
 
     #getter and setter for room description
-    def _set_room_description(self, input)
+    def _set_room_description(self, input):
         self.room_description = input
     
-    def _get_room_description(self)
+    def _get_room_description(self):
         return self.room_description
 
     #getter and setter for room_rates
-    def _set_room_rates(self, price)
+    def _set_room_rates(self, price):
         self.room_rates = price
     
-    def _get_room_rates(self)
+    def _get_room_rates(self):
         return self.room_rates
 
     #getter and setter for room status
-    def _set_room_status(self, status)
+    def _set_room_status(self, status):
         self.room_status = status
     
-    def _get_room_status(self)
+    def _get_room_status(self):
         return self.room_status
 
