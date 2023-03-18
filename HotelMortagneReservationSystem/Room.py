@@ -1,4 +1,3 @@
-from Reservation import Reservation
 class Room:
     def __init__(self, room_id, room_number, room_type, room_description, room_rates=0, room_status="", reservation=None):
         self.room_id = room_id
