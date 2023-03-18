@@ -73,6 +73,28 @@ class Room:
                     available_rooms.append(room)
         return available_rooms
 
+    def select_room(self, available_rooms):
+        if not available_rooms:
+            print("No available rooms.")
+            return None
+
+        print("Available Rooms:")
+        for i, room in enumerate(available_rooms):
+            print(f"{i + 1}. {room.room_number} - {room.room_type} ({room.room_description}) - {room.room_rates}")
+
+        while True:
+            choice = input("Enter the number of the room you would like to select: ")
+            try:
+                choice = int(choice)
+                if choice < 1 or choice > len(available_rooms):
+                    raise ValueError()
+            except ValueError:
+                print("Invalid input. Please enter a number between 1 and ", len(available_rooms))
+            else:
+                break
+
+        return available_rooms[choice - 1]
+
 
 room1 = Room(1, "101", "Standard", "A standard room with a queen-sized bed", 100, "available")
 room2 = Room(2, "102", "Standard", "A standard room with two double beds", 120, "available")
@@ -85,10 +107,29 @@ room_list = [room1, room2, room3, room4, room5]
 reservation_date = "2023-03-20"
 num_occupants = 2
 
+print("Search Room Method:")
 available_rooms = room1.search_room(num_occupants, room_list)
 
 for room in available_rooms:
     print(room.room_number)
+
+
+# Calling the select_room()
+print("Select Room Method:")
+# Call the search_room method to get a list of available rooms
+available_rooms = room1.search_room(2, room_list)
+
+# Call the select_room method to prompt the user to select a room from the list of available rooms
+selected_room = room1.select_room(available_rooms)
+
+# Print the details of the selected room
+if selected_room:
+    print(f"You have selected room {selected_room.room_number} - {selected_room.room_type} ({selected_room.room_description}) for {reservation_date}. The room rate is {selected_room.room_rates}.")
+
+
+
+
+
 
 
 
