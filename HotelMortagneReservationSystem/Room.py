@@ -1,13 +1,13 @@
 from Reservation import Reservation
 class Room:
-    def __init__(self, room_id, room_number, room_type, room_description, room_rates=0, room_status=""):
+    def __init__(self, room_id, room_number, room_type, room_description, room_rates=0, room_status="", reservation=None):
         self.room_id = room_id
         self.room_number = room_number
         self.room_type = room_type
         self.room_description = room_description
         self.room_rates = room_rates
         self.room_status = room_status
-        self.reservation_date = None
+        self.reservation = reservation
 
 
     def set_reservation(self, reservation):
@@ -64,54 +64,41 @@ class Room:
     def _get_room_status(self):
         return self.room_status
 
-    def searchRoom(self, reservation_date=None, number_of_occupants=None):
-        """
-        This method searches for rooms based on the given reservation date and/or number of occupants.
+    def search_room(self, num_occupants, room_list):
+        print("gets in the method")
+        available_rooms = []
+        for room in room_list:
+            if room.room_status == "available" and room.room_rates > 0 and room.reservation is None:
+                if room.room_rates >= num_occupants:
+                    available_rooms.append(room)
+        return available_rooms
 
-        Args:
-            reservation_date (str): Date in the format of 'YYYY-MM-DD'
-            number_of_occupants (int): Number of occupants required in the room
 
-        Returns:
-            List[Room]: List of rooms that match the given search criteria
-        """
-        matching_rooms = []
+room1 = Room(1, "101", "Standard", "A standard room with a queen-sized bed", 100, "available")
+room2 = Room(2, "102", "Standard", "A standard room with two double beds", 120, "available")
+room3 = Room(3, "201", "Deluxe", "A deluxe room with a king-sized bed and a balcony", 150, "available")
+room4 = Room(4, "202", "Deluxe", "A deluxe room with two queen-sized beds and a balcony", 180, "occupied")
+room5 = Room(5, "301", "Suite", "A suite with a king-sized bed, a separate living room, and a kitchenette", 250, "available")
 
-        # Check if the room is available on the given reservation date
-        if reservation_date is not None:
-            if self.get_reservation() == reservation_date:
-                matching_rooms.append(self)
+room_list = [room1, room2, room3, room4, room5]
 
-        # Check if the room can accommodate the given number of occupants
-        if number_of_occupants is not None:
-            if self.room_status == "" and number_of_occupants <= self.number_of_occupants:
-                matching_rooms.append(self)
+reservation_date = "2023-03-20"
+num_occupants = 2
 
-        return matching_rooms
+available_rooms = room1.search_room(num_occupants, room_list)
 
-# Create some Room objects
-room1 = Room(1, "101", "Single", "Standard room", 100)
-room2 = Room(2, "102", "Double", "Deluxe room", 150)
-room3 = Room(3, "103", "Suite", "Luxury room", 200)
+for room in available_rooms:
+    print(room.room_number)
 
-# Set reservations on some rooms
-reservation1 = Reservation(1, "2022-03-20", 2)
-reservation2 = Reservation(2, "2022-03-22", 1)
-reservation3 = Reservation(3, "2022-03-23", 3)
-room1.set_reservation(reservation1)
-room2.set_reservation(reservation2)
-room3.set_reservation(reservation3)
 
-# Test searchRoom() method with different parameters on an instance of Room class
-matching_rooms = room1.searchRoom(reservation_date="2022-03-20")
-assert len(matching_rooms) == 1 and matching_rooms[0]._get_room_number() == "101"
 
-matching_rooms = room1.searchRoom(number_of_occupants=2)
-assert len(matching_rooms) == 2 and {room._get_room_number() for room in matching_rooms} == {"101", "102"}
 
-matching_rooms = room2.searchRoom(room_number="102")
-assert len(matching_rooms) == 1 and matching_rooms[0]._get_room_number() == "102"
 
-matching_rooms = room3.searchRoom(room_type="Suite")
-assert len(matching_rooms) == 1 and matching_rooms[0]._get_room_number() == "103"
+
+
+
+
+
+
+
 
