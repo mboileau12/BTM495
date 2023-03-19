@@ -94,6 +94,12 @@ class Room:
 
         return available_rooms[choice - 1]
 
+    
+    def retrieveRoomStatus(self):
+        print(f"Room Number: {self.room_number}\nRoom Status: {self.room_status}")
+    
+
+
 
 
 #Testing for methods: searchRoom() and selectRoom()
@@ -124,7 +130,8 @@ selected_room = room1.select_room(available_rooms)
 if selected_room:
     print(f"You have selected room {selected_room.room_number} - {selected_room.room_type} ({selected_room.room_description}) for {reservation_date}. The room rate is {selected_room.room_rates}.")
 
-
+#testing retrieveRoomStatus
+print(room1.retrieveRoomStatus())
 
 
 
