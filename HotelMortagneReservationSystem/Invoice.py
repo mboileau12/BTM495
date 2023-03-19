@@ -29,7 +29,6 @@ class Invoice:
     def _get_payment_date(self):
         self.payment_date
     
-
     #getter and setter for balance
     def _set_balance(self, amount):
         self.balance = amount
