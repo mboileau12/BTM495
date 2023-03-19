@@ -41,15 +41,16 @@ class Reservation:
         print(f"Reservation for {number_of_occupants} occupants in room {self.room.room_number} has been created for {reservation_date}.")
 
 
-room = Room(room_id=1, room_number="101", room_type="Single", room_description="A cozy room with a view")
+#Testing for method: createReservation
+room = Room(1, "101", "Single", "A cozy room with a view")
 
 
-reservation = Reservation(reservation_id=1, reservation_date="2022-01-01", room=room)
+reservation = Reservation(1, "2023-03-01", room)
 
 
 room.set_reservation(reservation)
 
 #calling the createReservation() method.
 print("Create Reservation Method:")
-reservation.createReservation("2022-01-01", 2) 
-reservation.createReservation("2022-01-02", 2)
+reservation.createReservation("2023-03-01", 2) 
+reservation.createReservation("2023-03-02", 2)

@@ -64,7 +64,7 @@ class Room:
         return self.room_status
 
     def search_room(self, num_occupants, room_list):
-        print("gets in the method")
+        
         available_rooms = []
         for room in room_list:
             if room.room_status == "available" and room.room_rates > 0 and room.reservation is None:
@@ -95,11 +95,13 @@ class Room:
         return available_rooms[choice - 1]
 
 
-room1 = Room(1, "101", "Standard", "A standard room with a queen-sized bed", 100, "available")
-room2 = Room(2, "102", "Standard", "A standard room with two double beds", 120, "available")
-room3 = Room(3, "201", "Deluxe", "A deluxe room with a king-sized bed and a balcony", 150, "available")
-room4 = Room(4, "202", "Deluxe", "A deluxe room with two queen-sized beds and a balcony", 180, "occupied")
-room5 = Room(5, "301", "Suite", "A suite with a king-sized bed, a separate living room, and a kitchenette", 250, "available")
+
+#Testing for methods: searchRoom() and selectRoom()
+room1 = Room(1, "101", "Standard", "A standard room with a queen-sized bed", 100, "Available")
+room2 = Room(2, "102", "Standard", "A standard room with two double beds", 120, "Available")
+room3 = Room(3, "201", "Deluxe", "A deluxe room with a king-sized bed and a balcony", 150, "Available")
+room4 = Room(4, "202", "Deluxe", "A deluxe room with two queen-sized beds and a balcony", 180, "Occupied")
+room5 = Room(5, "301", "Suite", "A suite with a king-sized bed, a separate living room, and a kitchenette", 250, "Available")
 
 room_list = [room1, room2, room3, room4, room5]
 
