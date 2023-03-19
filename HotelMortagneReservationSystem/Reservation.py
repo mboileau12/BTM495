@@ -50,5 +50,6 @@ reservation = Reservation(reservation_id=1, reservation_date="2022-01-01", room=
 room.set_reservation(reservation)
 
 #calling the createReservation() method.
+print("Create Reservation Method:")
 reservation.createReservation("2022-01-01", 2) 
 reservation.createReservation("2022-01-02", 2)

@@ -115,11 +115,10 @@ for room in available_rooms:
 
 # Calling the select_room()
 print("Select Room Method:")
-# Call the search_room method to get a list of available rooms
+
 available_rooms = room1.search_room(2, room_list)
 selected_room = room1.select_room(available_rooms)
 
-# Print the details of the selected room
 if selected_room:
     print(f"You have selected room {selected_room.room_number} - {selected_room.room_type} ({selected_room.room_description}) for {reservation_date}. The room rate is {selected_room.room_rates}.")
 
