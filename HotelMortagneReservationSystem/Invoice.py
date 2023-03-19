@@ -44,7 +44,32 @@ class Invoice:
         self.balance += amount
 
         print(f"Invoice {self.invoice_id} has been created with a balance of {self.balance}.")
-        
+
+    
+    def selectInvoice(self, invoice_list):
+        if not invoice_list:
+            print("No invoices available.")
+            return None
+
+        print("Available Invoices:")
+        for i, invoice in enumerate(invoice_list):
+            print(f"{i + 1}. {invoice.invoice_id} - {invoice.invoice_description} ({invoice.payment_date}) - {invoice.balance}")
+
+        while True:
+            choice = input("Enter the number of the invoice you would like to select: ")
+            try:
+                choice = int(choice)
+                if choice < 1 or choice > len(invoice_list):
+                    raise ValueError()
+            except ValueError:
+                print("Invalid input. Please enter a number between 1 and ", len(invoice_list))
+            else:
+                break
+
+        selected_invoice = invoice_list[choice - 1]
+        print(f"You have selected Invoice {selected_invoice.invoice_id} - {selected_invoice.invoice_description}.")
+        return selected_invoice
+
 
 
 #TESTING FOR METHOD: createInvoice()
@@ -76,3 +101,13 @@ print(f"Description: {invoice.invoice_description}")
 print(f"Payment Date: {invoice.payment_date}")
 print(f"Balance: {invoice.balance}") # Should print 100.0
 print("-------------------------------------------")
+
+
+#Testing for selectInvoice
+invoice1 = Invoice(1, "Room rental fee", "2022-04-01", 200.0)
+invoice2 = Invoice(2, "Cleaning fee", "2022-05-01", 100.0)
+invoice3 = Invoice(3, "Late payment fee", "2022-06-01", 50.0)
+
+invoice_list = [invoice1, invoice2, invoice3]
+
+selected_invoice = invoice1.selectInvoice(invoice_list)
