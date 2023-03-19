@@ -108,7 +108,7 @@ room_list = [room1, room2, room3, room4, room5]
 reservation_date = "2023-03-20"
 num_occupants = 2
 
-print("Search Room Method:")
+print("\nSearch Room Method:\n---------------------------------------")
 available_rooms = room1.search_room(num_occupants, room_list)
 
 for room in available_rooms:
@@ -116,7 +116,7 @@ for room in available_rooms:
 
 
 # Calling the select_room()
-print("Select Room Method:")
+print("\nSelect Room Method:\n----------------------------------------")
 
 available_rooms = room1.search_room(2, room_list)
 selected_room = room1.select_room(available_rooms)
