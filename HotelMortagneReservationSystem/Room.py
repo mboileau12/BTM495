@@ -117,8 +117,6 @@ for room in available_rooms:
 print("Select Room Method:")
 # Call the search_room method to get a list of available rooms
 available_rooms = room1.search_room(2, room_list)
-
-# Call the select_room method to prompt the user to select a room from the list of available rooms
 selected_room = room1.select_room(available_rooms)
 
 # Print the details of the selected room
