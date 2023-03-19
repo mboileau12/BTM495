@@ -14,7 +14,7 @@ class Room:
 
     def get_reservation(self):
         if self.reservation:
-            return self.reservation.reservation_date
+            return self.reservation
         else:
             return None
 
