@@ -40,6 +40,12 @@ class Reservation:
         self.room.set_reservation(self)
         print(f"Reservation for {number_of_occupants} occupants in room {self.room.room_number} has been created for {reservation_date}.")
 
+    def searchReservation(self, reservation_id):
+        if self.reservation_id == reservation_id:
+            return self
+        else:
+            return None
+
 
 #Testing for method: createReservation
 room = Room(1, "101", "Single", "A cozy room with a view")
@@ -54,3 +60,19 @@ room.set_reservation(reservation)
 print("Create Reservation Method:")
 reservation.createReservation("2023-03-01", 2) 
 reservation.createReservation("2023-03-02", 2)
+
+
+#calling the searchReservation()
+reservation2 = Reservation(2, "2023-03-02", room)
+
+result = reservation.searchReservation(1)
+if result is not None:
+    print(f"Found reservation {result.reservation_id} with date {result.reservation_date}")
+else:
+    print("Reservation not found")
+
+result = reservation2.searchReservation(3)
+if result is not None:
+    print(f"Found reservation {result.reservation_id} with date {result.reservation_date}")
+else:
+    print("Reservation not found")
