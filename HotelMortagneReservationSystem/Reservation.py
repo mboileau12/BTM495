@@ -78,13 +78,15 @@ reservation = Reservation(1, "2023-03-01", room)
 
 room.set_reservation(reservation)
 
-print("\n TESTING FOR CREATE RESERVATION METHOD\n----------------------------------------------")
+print("\nCreate Reservation Method:\n----------------------------------------------")
 #calling the createReservation() method.
 print("Create Reservation Method:")
 reservation.createReservation("2023-03-01", 2) 
 reservation.createReservation("2023-03-02", 2)
 
-print("\n TESTING FOR SEARCH RESERVATION METHOD\n----------------------------------------------")
+
+
+print("\nSearch Reservation Method:\n----------------------------------------------")
 #calling the searchReservation()
 reservation2 = Reservation(2, "2023-03-02", room)
 
@@ -100,7 +102,9 @@ if result is not None:
 else:
     print("Reservation not found")
 
-print("\n TESTING FOR SELECT RESERVATION METHOD\n----------------------------------------------")
+
+
+print("\nSelect Reservation Method:\n----------------------------------------------")
 #Testing for selectReservation()
 room1 = Room(1, "101", "Single", "A cozy room with a view")
 room2 = Room(2, "102", "Double", "A spacious room with a balcony")

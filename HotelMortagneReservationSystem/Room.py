@@ -96,8 +96,21 @@ class Room:
 
     
     def retrieveRoomStatus(self):
-        print(f"Room Number: {self.room_number}\nRoom Status: {self.room_status}")
-    
+        while True:
+            room_number = input("Enter the room number you would like to check: ")
+            found_room = None
+            for room in room_list:
+                if room.room_number == room_number:
+                    found_room = room
+                    break
+            if found_room is None:
+                print(f"Room {room_number} not found. Please try again.")
+            elif found_room.room_status == "available":
+                print(f"Room Number: {found_room.room_number}\nRoom Status: {self.room_status}")
+                break
+            else:
+                print(f"Room Number: {found_room.room_number}\nRoom Status: {self.room_status}")
+                break
 
 
 
@@ -130,9 +143,12 @@ selected_room = room1.select_room(available_rooms)
 if selected_room:
     print(f"You have selected room {selected_room.room_number} - {selected_room.room_type} ({selected_room.room_description}) for {reservation_date}. The room rate is {selected_room.room_rates}.")
 
+print("\nRetrieve Room Status Method:\n----------------------------------------------")
 #testing retrieveRoomStatus
-print(room1.retrieveRoomStatus())
+#print(room1.retrieveRoomStatus())
+room_list = [room1, room2, room3, room4, room5]
 
+room1.retrieveRoomStatus()
 
 
 

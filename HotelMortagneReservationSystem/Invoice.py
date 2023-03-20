@@ -75,7 +75,7 @@ class Invoice:
 #TESTING FOR METHOD: createInvoice()
 invoice = Invoice(1, "Room rental fee", "2022-04-01")
 
-
+print("\nCreate Invoice Method:\n----------------------------------------------")
 print("NOTE:")
 invoice.createInvoice("test desc", 200.0)
 
@@ -103,6 +103,7 @@ print(f"Balance: {invoice.balance}") # Should print 100.0
 print("-------------------------------------------")
 
 
+print("\nSelect Invoice Method:\n----------------------------------------------")
 #Testing for selectInvoice
 invoice1 = Invoice(1, "Room rental fee", "2022-04-01", 200.0)
 invoice2 = Invoice(2, "Cleaning fee", "2022-05-01", 100.0)
