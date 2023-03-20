@@ -67,7 +67,7 @@ class Room:
         
         available_rooms = []
         for room in room_list:
-            if room.room_status == "available" and room.room_rates > 0 and room.reservation is None:
+            if room.room_status == "Available" and room.room_rates > 0 and room.reservation is None:
                 if room.room_rates >= num_occupants:
                     available_rooms.append(room)
         return available_rooms
@@ -105,7 +105,7 @@ class Room:
                     break
             if found_room is None:
                 print(f"Room {room_number} not found. Please try again.")
-            elif found_room.room_status == "available":
+            elif found_room.room_status == "Available":
                 print(f"Room Number: {found_room.room_number}\nRoom Status: {self.room_status}")
                 break
             else:

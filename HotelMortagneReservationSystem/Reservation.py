@@ -110,9 +110,9 @@ room1 = Room(1, "101", "Single", "A cozy room with a view")
 room2 = Room(2, "102", "Double", "A spacious room with a balcony")
 room3 = Room(3, "103", "Suite", "A luxurious suite with a jacuzzi")
 
-reservation1 = Reservation(1, "2023-03-01", room1)
-reservation2 = Reservation(2, "2023-03-02", room2)
-reservation3 = Reservation(3, "2023-03-03", room3)
+reservation1 = Reservation(1, "2023-03-01", room1, 2)
+reservation2 = Reservation(2, "2023-03-02", room2, 1)
+reservation3 = Reservation(3, "2023-03-03", room3, 4)
 
 available_reservations = [reservation1, reservation2, reservation3]
 

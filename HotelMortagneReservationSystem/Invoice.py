@@ -112,3 +112,5 @@ invoice3 = Invoice(3, "Late payment fee", "2022-06-01", 50.0)
 invoice_list = [invoice1, invoice2, invoice3]
 
 selected_invoice = invoice1.selectInvoice(invoice_list)
+
+print("hello")
