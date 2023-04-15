@@ -112,7 +112,16 @@ class Room:
                 print(f"Room Number: {found_room.room_number}\nRoom Status: {self.room_status}")
                 break
 
+    def construct_room(self, room_id, room_number, room_type, room_description, room_rates, room_status):
 
+        new_room = {"room_id": room_id,
+                "room_number": room_number,
+                "room_type": room_type,
+                "room_description": room_description,
+                "room_rates": room_rates,
+                "room_status": room_status}
+
+        room_list.append(new_room)
 
 
 #Testing for methods: searchRoom() and selectRoom()
