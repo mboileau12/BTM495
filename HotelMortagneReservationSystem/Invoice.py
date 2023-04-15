@@ -1,12 +1,18 @@
 from datetime import datetime
 
+from Customer import Customer
+from Reservation import Reservation
+from Room import Room
 class Invoice:
-    def __init__(self, invoice_id, invoice_description, payment_date, balance=0):
+    def __init__(self, invoice_id, customer, reservation_id, invoice_description, payment_date="", balance=0):
         self.invoice_id = invoice_id
         self.invoice_description = invoice_description
         self.payment_date = payment_date
         self.balance = balance
+        self.customer = customer
+        self.reservation_id = reservation_id
     
+
     # getter and setter for invoice id
     def _set_invoice_id(self, id):
         self.invoice_id = id
@@ -37,14 +43,16 @@ class Invoice:
     
     def createInvoice(self, invoice_description, amount):
         
-        timestamp = datetime.now().strftime('%Y%m%d%H%M%S%f')
-        invoice_id = f"{timestamp}-{self.invoice_id}"
+        invoice_id = self.invoice_id
         self.invoice_id = invoice_id
         self.invoice_description = invoice_description
-        self.balance += amount
+        self.balance = amount
 
-        print(f"Invoice {self.invoice_id} has been created with a balance of {self.balance}.")
+        print(f"Invoice {self.invoice_id} has been created for {self.get_customer_name()} with a balance of {self.balance}.")
 
+    
+    def get_customer_name(self):
+        return f"{self.customer.get_first_name()} {self.customer.get_last_name()}"
     
     def selectInvoice(self, invoice_list):
         if not invoice_list:
@@ -73,33 +81,46 @@ class Invoice:
 
 
 #TESTING FOR METHOD: createInvoice()
-invoice = Invoice(1, "Room rental fee", "2022-04-01")
+#invoice = Invoice(1, "Room rental fee", "2022-04-01")
 
 print("\nCreate Invoice Method:\n----------------------------------------------")
 print("NOTE:")
-invoice.createInvoice("test desc", 200.0)
+room = Room(1, "101", "Single", "A cozy room with a view")
+reservation = Reservation(1, "2023-03-01", room)
+customer = Customer(123, "John", "Green", "123 Maroon St", "514-123-1234", "johngreen@none.com")
+invoice = Invoice("001", customer,"", "Consulting services", "04-12-23")
+invoice.createInvoice("Hotel Services", 500)
 
 #Printing a test for the first invoice
 print("\t\tINVOICE")
 print("-------------------------------------------")
 print(f"Invoice ID: {invoice.invoice_id}")
+print(f"Customer Name: {customer.get_first_name()} {customer.get_last_name()}")
+print(f"Reservation ID: {reservation._get_reservation_id()}")
 print(f"Description: {invoice.invoice_description}")
 print(f"Payment Date: {invoice.payment_date}")
-print(f"Balance: {invoice.balance}") # Should print 200.0
+print(f"Balance: {invoice.balance}") 
 print("-------------------------------------------")
 
 
-print("NOTE:")
-invoice.createInvoice("test desc 2", -100.0)
 
+print("NOTE:")
+room6 = Room(1, "101", "Single", "A cozy room with a view")
+reservation6 = Reservation(3, "2023-03-01", room)
+customer6 = Customer(123, "Greg", "Simons", "123 Red St", "514-543-5634", "gregsimons@none.com")
+invoice6 = Invoice("023", customer,"", "Hotel and Addtional Services", "03-23-23")
+
+invoice6.createInvoice("Hotel and Additional Services", 1000)
 
 #Printing a test for a second invoice
 print("\n\t\tINVOICE")
 print("-------------------------------------------")
-print(f"Invoice ID: {invoice.invoice_id}")
-print(f"Description: {invoice.invoice_description}")
-print(f"Payment Date: {invoice.payment_date}")
-print(f"Balance: {invoice.balance}") # Should print 100.0
+print(f"Invoice ID: {invoice6.invoice_id}")
+print(f"Customer Name: {customer6.get_first_name()} {customer6.get_last_name()}")
+print(f"Reservation ID: {reservation6._get_reservation_id()}")
+print(f"Description: {invoice6.invoice_description}")
+print(f"Payment Date: {invoice6.payment_date}")
+print(f"Balance: {invoice6.balance}") 
 print("-------------------------------------------")
 
 
